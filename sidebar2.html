@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <style>
+        body{
+            background-color: rgb(34, 33, 33);
+            background-size:cover;
+        }
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        #sidebar{
+            position:fixed;
+            width:200px;
+            height:100%;
+            background:rgb(102, 79, 79);
+            left:-200px;
+            transition:all 500ms linear;
+        }
+        #sidebar.active{
+                left:0px;
+                
+        }
+         #sidebar ul li{
+            padding:15px;
+            list-style:none;
+            border-bottom:1px solid rgb(207, 180, 180);
+            text-decoration:none;
+        }
+        a{
+            padding:15px;
+            color:rgb(248, 248, 248);
+            text-decoration:none;
+            font-family:sans-serif;
+        }
+        
+        #sidebar .toggle-btn{
+            position: absolute;
+            left:230px;
+            top:20px;
+        }
+        #sidebar .toggle-btn span{
+            display:block;
+            width:40px;
+            height:5px;
+            background:white;
+            margin:5px 0px;
+            border-radius:50px;
+        }
+        .questionare{
+            position:absolute;
+            height:40%;
+            width:70%;
+            top:20%;
+            left:25%;
+            background-color:rgb(61, 51, 51);
+            border-radius:2px;
+            box-shadow:2px 0px 10px white;
+            color:white;
+            padding-top:100px;
+            padding-left:30px;
+        }
+        #question{
+            text-align:center;
+            font-family:sans-serif;
+            font-size:20px;
+        }
+        #txt{
+            position:absolute;
+            width:80%;
+            height:10%;
+            left:10%;   
+            top:75%;
+            background-color:inherit;
+            border-top:inherit;
+            border-left:inherit;
+            border-right:inherit;
+            border-bottom:1px solid white;
+            text-align:center;
+            color:white;
+            font-size:20px;
+        }
+        #btn{
+            position:absolute;
+            top:85%;
+            left:60%;
+            width:100px;
+            height:50px;
+            background-color:inherit;
+            color:white;
+            font-family: monospace;
+            border:inherit;
+            transition:0.6s;
+            filter:hue-rotate();
+        }
+        #btn:hover{
+            background-color:rgb(17, 156, 17);
+            border-radius:2px;
+        }
+    </style>
+    <script>
+            let arr3=["birth date of Jose Rizal is June 19,____"
+                    ,"Born in _______, Laguna Province"
+                    ," baptismal of Rizal June 22,______"
+                    ,"baptized Rizal"
+                    ,"Rizal‟s godfather,Father______"
+                    ,"nephew of Casañas andwill marry Lucia,Father _________"
+                    ,"the governor general of the Philippines whenRizal was born"
+                    ,"jose - was chosen by his mother who was a devotee of the Christian saint_________"
+                    ,"rom Gervacio P. which come from a _____calendar"
+                    ,"Mercado- adopted in 1731 by _______"
+                    ,"Spanish term mercado means '_____'in english"
+                    ,"great-great grandfather"
+                    ,"Rizal‟s father (son of Juan Mercado)"
+                    ,"Rizal – “racial”; meaning “new pasture” and '______'"
+                    ,"He taught Rizal in the rudiments of wrestling."
+                    ,"Rizal's private tutor who honed his skillfulness in Latin"
+                    ,"Protacio usually used chalk in his writing session(TRUE OR FALSE)."
+                    ,"Rizal's epileptic sister"
+                    ,"It is a forced labor rendered by all males to the government."
+                    ,"Rizal's godfather when he was baptized as catholic. "
+                    ,"Rizal's sister from whom he learned the value of sisterly love "
+                    ,"Dona Teodora alleged conspired for poisoning her sister-in-law(TRUE OR FALSE)"
+                    ,"He taught Rizal in drawing "
+                    ,"He pioneered the secularization of parishes."
+                    ,"Rizal's youngest sister"
+                    ,"Rizal's eldest sister"
+                    ,"Rizal's teacher in Binan"
+                    ,"What was the age of Jose Rizal when he experienced his first sorrow? "
+                    ,"'Moth and the Flame' story reminded Jose to pray his mother(TRUE OR FALSE)"
+                    ,"Rizal's first private tutor"
+                    ,"Rizal's painting partner under the instruction of Mang Juancho."
+                    ,"It is a form of a heavy taxation."
+                    ,"What is the poem where Rizal expressed the importance of loving one's native language"
+                    ,"Rizal's sister who inherited his properties in Dapitan."
+                    ,"He almost broke Rizal's arm during an arm wrestling"];
+            let arr4=["1861","Calamba","1861","Rufino Collantes","Pedro Casanas","Mariano Herbosa"
+                    ,"Lieutenant-General Jose Lemery","SanJose","Christian","Domigo Lamco","market","Domingo Lameo","Francisco Mercado"
+                    ,"green field","Manuel","Leon Monroy","FALSE","Josefa","POLO","FR. Pedro Casanas","Concepcion","FALSE","Jose Alberto"
+                    ,"FR. Pedro Pelaez","Soledad","Saturnina","Maestro Justiniano","4","FALSE","Maestro Lucas Padua","Jose Guevarra"
+                    ,"TRIBUTE","TO MY FELLOW CHILDREN","Trinidad","Andres Salandanan"];
+
+            let count=1;
+
+        function f1(){
+            document.getElementById("sidebar").classList.toggle('active');
+        }
+        function data_struct(){
+            window.location="sidebar.html";
+        }
+        function Rizal(){
+            count=1;
+            document.getElementById("question").innerHTML=arr3[count-1];
+        }
+        function submit(){
+            let str=document.getElementById("txt").value;
+            document.getElementById("question").innerHTML=arr3[count];
+            if(arr4[count-1]==str)
+                alert("correct");
+            else
+                alert("wrong the correct answer is "+arr4[count-1]);
+            count++;
+                document.getElementById("txt").value="";
+            console.log(count);
+        }
+    </script>
+    </head>
+    
+    <body>
+    <div id="sidebar">
+    <div class="toggle-btn" onclick="f1()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+        <ul>
+        <li><a href="#" onclick="data_struct()">Data Structure</a></li><br>
+        <li><a href="#">Art appreciation</a></li>
+        <li><a href="#" onclick="Rizal()">Discrete Structure</a></li><br>
+        <li><a href="#" onclick="Rizal()">Rizal</a></li>
+    </ul>
+    </div>
+    <div class="questionare">
+        <p id="question"> </p>
+        <input type="text" id="txt" placeholder="type your answer here">
+    </div>
+    <button id="btn" onclick="submit()">next</button>
+    </body>
+</html>
